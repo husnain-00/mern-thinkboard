@@ -35,17 +35,7 @@ const HomePage = () => {
     fetchNotes();
   }, []);
 
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this note?")) return;
-    try {
-      await api.delete(`/notes/${id}`);
-      setNotes((prev) => prev.filter((note) => note._id !== id));
-      toast.success("Note deleted successfully");
-    } catch (error) {
-      console.log("Error deleting note", error);
-      toast.error("Failed to delete note");
-    }
-  };
+
 
   return (
     <div className = "min-h-screen">
